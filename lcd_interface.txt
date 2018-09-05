@@ -1,0 +1,84 @@
+NAME:JANHAVI THAKUR
+ROLL NO:20
+LAB NO:3
+"LCD INTERFACING"
+
+
+A51 MACRO ASSEMBLER  LCD                                                                  04/07/2015 22:29:55 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN lcd.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE lcd.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 00h
+0000 758000            2     mov p0,#00h
+0003 C2B3              3     clr p3.3
+0005 C2B7              4     clr p3.7
+0007 C297              5     clr p1.7
+0009 7438              6     mov a,#38h
+000B 1135              7     acall com
+000D 114B              8     acall delay
+000F 740E              9     mov a,#0Eh
+0011 1135             10     acall com
+0013 114B             11     acall delay
+0015 7401             12     mov a,#01h
+0017 1135             13     acall com
+0019 114B             14     acall delay
+001B 7406             15     mov a,#06h
+001D 1135             16     acall com
+001F 114B             17     acall delay
+0021 7480             18     mov a,#80h
+0023 1135             19     acall com
+0025 114B             20     acall delay
+0027 744E             21     mov a,#'N'
+0029 1140             22     acall dat
+002B 114B             23     acall delay
+002D 746F             24     mov a,#'o'
+002F 1140             25     acall dat
+0031 114B             26     acall delay
+0033 80FE             27     again: sjmp again
+0035                  28     com:
+0035 F580             29     mov p0,a
+0037 C2B3             30     clr p3.3
+0039 D2B7             31     setb p3.7
+003B 114B             32     acall delay
+003D C2B7             33     clr p3.7
+003F 22               34     ret
+0040                  35     dat:
+0040 F580             36     mov p0,a
+0042 D2B3             37     setb p3.3
+0044 D2B7             38     setb p3.7
+0046 114B             39     acall delay
+0048 C2B7             40     clr p3.7
+004A 22               41     ret
+                      42     
+004B                  43     delay:
+004B 7905             44     mov r1,#5
+004D D9FE             45     here2:djnz r1,here2
+004F 22               46     ret
+                      47     end
+A51 MACRO ASSEMBLER  LCD                                                                  04/07/2015 22:29:55 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0033H   A   
+COM. . . . . . . .  C ADDR   0035H   A   
+DAT. . . . . . . .  C ADDR   0040H   A   
+DELAY. . . . . . .  C ADDR   004BH   A   
+HERE2. . . . . . .  C ADDR   004DH   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
